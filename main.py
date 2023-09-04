@@ -7,6 +7,7 @@ import pygame.freetype as pf
 p.init()
 okno = p.display.set_mode((sett.SHIRINA, sett.BISOTA))
 chasi = p.time.Clock()
+player = spr.Player_ball(sett.NAME, (sett.SHIRINA/2, sett.BISOTA/2))
 a = 0
 while a == 0:
     events = p.event.get()
@@ -14,5 +15,8 @@ while a == 0:
         if one_event.type == p.QUIT:
             a = 1
     okno.fill((0,50,0))
+    player.prorisovka(okno)
+    player.dvizenie()
     p.display.update()
-    chasi.tick(10)
+    chasi.tick(120)
+    
