@@ -14,10 +14,10 @@ def proverka (name):
 def dobavlenie_obnovlenie(name,size):
     if proverka(name) == True:
         sessia = Sessia_for_podkl(bind = b.base)
-        query = sessia.query(b.tablisa)
-        for zapis in query:
-            if zapis.name == name:
-                zapis.size = size
+        query = sessia.query(b.score)
+        for query1 in query:
+            if query1.name == name:
+                query1.size = size
                 break
         sessia.commit()
         sessia.close()
