@@ -32,13 +32,18 @@ while a == 0:
             ball = spr.Balls(player)
             balls.append(ball)
         if one_event.type == p.QUIT:
-            bf.dobavlenie_obnovlenie(player.name, player.xitbox.width)
-            bf.size(player.name, player.xitbox.width)
+            if bf.otdacha(player.name) < player.xitbox.width:
+                bf.dobavlenie_obnovlenie(player.name, player.xitbox.width)
+            # bf.size(player.name, player.xitbox.width)
             a = 1
         if one_event.type == p.KEYDOWN:
             if one_event.key == p.K_f:
-                bf.dobavlenie_obnovlenie(player.name, player.xitbox.width)
-                bf.size(player.name, player.xitbox.width)
+                otdacha = bf.otdacha(player.name)
+                # print(otdacha)
+                # print(player.xitbox.w)
+                if bf.otdacha(player.name) < player.xitbox.width:
+                    bf.dobavlenie_obnovlenie(player.name, player.xitbox.width)
+                # bf.size(player.name, player.xitbox.width)
                 igra_menu = 0
                 balls = []
                 player.xitbox.width = 30
