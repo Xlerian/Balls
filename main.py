@@ -22,7 +22,7 @@ text_menu = pf.Font(None, 20)
 player = spr.Player_ball(sett.NAME, (sett.SHIRINA/2, sett.BISOTA/2))
 balls = []   
 sobitie = p.USEREVENT
-p.time.set_timer(sobitie, 500)
+p.time.set_timer(sobitie, sett.DIFFICULT)
 a = 0
 igra_menu = 0
 while a == 0:
@@ -33,10 +33,12 @@ while a == 0:
             balls.append(ball)
         if one_event.type == p.QUIT:
             bf.dobavlenie_obnovlenie(player.name, player.xitbox.width)
+            bf.size(player.name, player.xitbox.width)
             a = 1
         if one_event.type == p.KEYDOWN:
             if one_event.key == p.K_f:
                 bf.dobavlenie_obnovlenie(player.name, player.xitbox.width)
+                bf.size(player.name, player.xitbox.width)
                 igra_menu = 0
                 balls = []
                 player.xitbox.width = 30

@@ -27,3 +27,17 @@ def dobavlenie_obnovlenie(name,size):
         sessia.add(player)
         sessia.commit()
         sessia.close()
+def size (name, size):
+    if proverka(name) == False:
+        pass
+    else:
+        sessia = Sessia_for_podkl(bind = b.base)
+        query = sessia.query(b.score)
+        for query1 in query:
+            if query1.size <= size:
+                sessia.commit()
+                sessia.close()
+            else:
+                query1.size = size
+                sessia.commit()
+                sessia.close()
