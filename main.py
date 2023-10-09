@@ -19,6 +19,7 @@ def stolknovenie ():
 okno = p.display.set_mode((sett.SHIRINA, sett.BISOTA))
 chasi = p.time.Clock()
 text_menu = pf.Font(None, 20)
+text_chet = pf.Font(None, 20)
 player = spr.Player_ball(sett.NAME, (sett.SHIRINA/2, sett.BISOTA/2))
 balls = []   
 sobitie = p.USEREVENT
@@ -56,8 +57,9 @@ while a == 0:
             one_ball.dvizenie()
         player.dvizenie()
         stolknovenie()
+        text_chet.render_to(okno,(sett.BISOTA/2 - 100,1000),f"Счёт:{bf.chet_igroka(player.name)},текущий счёт:{player.xitbox.w}", (250,0,0))
     else:
-        text_menu.render_to(okno,(sett.SHIRINA/2,sett.BISOTA/2),"Вы проиграли, нажмите на F для новой игры.")
+        text_menu.render_to(okno,(sett.SHIRINA/2,sett.BISOTA/2,),"Вы проиграли, нажмите на F для новой игры.", (250,0,0))
     p.display.update()
     chasi.tick(120)
     

@@ -50,3 +50,13 @@ def otdacha (name):
             return zapis.size
     sessia.close()
     return 0
+def chet_igroka (name):
+    if proverka(name) == False:
+        return 0
+    else:
+        sessia = Sessia_for_podkl(bind = b.base)
+        sessia = sessia.query(b.score)
+        info = sessia.all()
+        for player in info:
+            if player.name == name:
+                return player.size
